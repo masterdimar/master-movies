@@ -23,11 +23,11 @@ export default function Home(props: Props) {
       <main>
         <h1 className="text-3xl font-bold underline">
           <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} width={500} height={500} alt=""/>
-          {props.movies.map((movie) => (
-						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={100} height={100} alt=""/>
+          {props.movies.map((movie, index) => (
+						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={100} height={100} alt="" key={`movie${index}`}/>
 					))}
-          {props.series.map((serie) => (
-						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={100} height={100} alt=""/>
+          {props.series.map((serie, index) => (
+						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={100} height={100} alt="" key={`serie${index}`}/>
 					))}
         </h1>
         
