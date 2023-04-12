@@ -5,6 +5,11 @@ const nextConfig = {
 		domains: [
 			'image.tmdb.org',
 		],
+  },
+  env: {
+    THEMOVIEDB_BASE_URL: process.env.THEMOVIEDB_BASE_URL,
+    THEMOVIEDB_POSTER_SIZE: process.env.THEMOVIEDB_POSTER_SIZE,
+    THEMOVIEDB_BACKDROP_SIZE: process.env.THEMOVIEDB_BACKDROP_SIZE,
   }
 }
 

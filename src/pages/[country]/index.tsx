@@ -22,8 +22,13 @@ export default function Home(props: Props) {
       </Head>
       <main>
         <h1 className="text-3xl font-bold underline">
-          <Image src={props.headerImage} alt="" width={500} height={500}/>
-          <p>{props.language}</p>
+          <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} width={500} height={500} alt=""/>
+          {props.movies.map((movie) => (
+						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={100} height={100} alt=""/>
+					))}
+          {props.series.map((serie) => (
+						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={100} height={100} alt=""/>
+					))}
         </h1>
         
       </main>
@@ -34,6 +39,7 @@ export default function Home(props: Props) {
 
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   const language: string = context.query?.language?.toString() || "en-US"
+  const shortLanguage: string = language.split('-')[0]
 
   const randomMovieSerie: number = Math.floor(Math.random() * 2);
   var headerBackImage: string = ""
