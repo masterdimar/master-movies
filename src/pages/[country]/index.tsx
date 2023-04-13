@@ -21,7 +21,7 @@ export default function Home(props: Props) {
 		draggable: true,
 		touchMove: true,
 		swipeToSlide: true,
-		touchThreshold: 5.5,
+		touchThreshold: 50,
 		slidesToShow: 5.5,
 		slidesToScroll: 1,
 		speed: 500,
