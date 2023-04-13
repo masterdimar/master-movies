@@ -4,6 +4,9 @@ import { TMDBSerie } from '@/common/types/tmdbSerie';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
 import Image from 'next/image';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 type Props ={
   movies: TMDBMovie[],
@@ -12,6 +15,57 @@ type Props ={
   language: string
 }
 export default function Home(props: Props) {
+  var settings = {
+    dots: false,
+		infinite: false,
+		draggable: true,
+		touchMove: true,
+		swipeToSlide: true,
+		touchThreshold: 5.5,
+		slidesToShow: 5.5,
+		slidesToScroll: 1,
+		speed: 500,
+		initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3.5,
+        }
+      },
+      {
+        breakpoint: 1020,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2.5,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1.5,
+        }
+      },
+    ]
+  };
+
   return (
     <>
       <Head>
@@ -31,20 +85,28 @@ export default function Home(props: Props) {
         </div>
 
                        
-          <h2 className='text-2xl'>Películas populares</h2>
+        <h2 className='text-2xl'>Películas populares</h2>
+        <div className='items-center justify-between bg-blue-500 h-96 p-5 pr-10 pl-10'>
+          <Slider {...settings}>
           {props.movies.map((movie, index) => (
             <div key={`movie${index}`}>
-						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={100} height={100} alt="" />
-              <h3 className='text-l text-left'>{movie.title}</h3>
+						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={200} height={200} alt="" />
+              {/* <h3 className='text-l text-left'>{movie.title}</h3> */}
             </div>
 					))}
-          <h2 className='text-2xl'>Series populares</h2>
+            </Slider>
+        </div>
+        <h2 className='text-2xl'>Series populares</h2>
+        <div className='items-center justify-between bg-blue-500 h-96 p-5 pr-10 pl-10'>
+          <Slider {...settings}>
           {props.series.map((serie, index) => (
-            <div key={`serie${index}`}>
-						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={100} height={100} alt="" />
-              <h3 className='text-l text-left'>{serie.name}</h3>
+            <div key={`movie${index}`}>
+						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={200} height={200} alt="" />
+              {/* <h3 className='text-l text-left'>{movie.title}</h3> */}
             </div>
 					))}
+            </Slider>
+        </div>
         
         
       </main>
