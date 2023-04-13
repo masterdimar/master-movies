@@ -64,7 +64,13 @@ export default function Home(props: Props) {
         }
       },
       {
-        breakpoint: 390,
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1.2,
+        }
+      },
+      {
+        breakpoint: 330,
         settings: {
           slidesToShow: 1,
         }
