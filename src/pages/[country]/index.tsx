@@ -31,24 +31,28 @@ export default function Home(props: Props) {
         breakpoint: 1300,
         settings: {
           slidesToShow: 4,
+          slidesToScroll: 3,
         }
       },
       {
         breakpoint: 1200,
         settings: {
           slidesToShow: 3.5,
+          slidesToScroll: 3,
         }
       },
       {
         breakpoint: 1020,
         settings: {
           slidesToShow: 3,
+          slidesToScroll: 2,
         }
       },
       {
         breakpoint: 800,
         settings: {
           slidesToShow: 2.5,
+          slidesToScroll: 2,
         }
       },
       {
