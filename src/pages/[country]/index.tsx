@@ -24,10 +24,16 @@ export default function Home(props: Props) {
         <h1 className="text-3xl font-bold underline">
           <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} width={500} height={500} alt=""/>
           {props.movies.map((movie, index) => (
-						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={100} height={100} alt="" key={`movie${index}`}/>
+            <div key={`movie${index}`}>
+						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={100} height={100} alt="" />
+              <p>{movie.title}</p>
+            </div>
 					))}
           {props.series.map((serie, index) => (
-						<Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={100} height={100} alt="" key={`serie${index}`}/>
+            <div key={`serie${index}`}>
+						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={100} height={100} alt="" />
+              <p>{serie.name}</p>
+            </div>
 					))}
         </h1>
         
@@ -38,8 +44,7 @@ export default function Home(props: Props) {
 
 
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
-  const language: string = context.query?.language?.toString() || "en-US"
-  const shortLanguage: string = language.split('-')[0]
+  const language: string = context.query?.language?.toString() || "en"
 
   const randomMovieSerie: number = Math.floor(Math.random() * 2);
   var headerBackImage: string = ""

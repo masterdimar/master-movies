@@ -11,13 +11,15 @@ type Region = {
 }
 
 // This function can be marked `async` if using `await` inside
-export async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {  
   const country = await GetCountry(request)    
-  const language = request.headers.get('accept-language')?.split(',')?.[0] || 'en-US'
+  const language = request.headers.get('accept-language')?.split(',')?.[0].split('-')[0] || 'en'
   
   request.nextUrl.pathname = `/${country.toUpperCase()}`    
   request.nextUrl.searchParams.set("language", language)
+  
   return NextResponse.redirect(request.nextUrl)
+  
 }
 
 
@@ -39,5 +41,5 @@ async function GetCountry(request: NextRequest){
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: '/',
+  matcher: ['/', '/:country*'],
 }
