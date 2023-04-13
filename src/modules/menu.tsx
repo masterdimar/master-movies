@@ -8,7 +8,7 @@ export default function Menu() {
     }
     return(
         <>
-            <nav className="flex justify-between flex-wrap bg-teal-500 text-white p-6" >
+            <nav className="flex justify-between flex-wrap bg-blue-950 text-white p-6" >
                 <div className="flex flex-1 m-2">
                     LOGO
                 </div>

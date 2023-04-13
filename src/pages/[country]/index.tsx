@@ -21,23 +21,31 @@ export default function Home(props: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-3xl font-bold underline">
-          <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} width={500} height={500} alt=""/>
-          <p>Películas populares</p>
+        <div className='flex h-72 md:h-96 lg:h-[25rem] justify-center items-center flex-col relative bg-gray-700'>
+          <div className='w-full h-full bg-cover bg-center bg-gray-300'>
+            <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} fill style={{objectFit: 'cover',}} alt=""/>
+            <div className='flex justify-center backdrop-brightness-50 bg-blue-600/40 w-full h-full'>
+              <span className='text-white text-2xl sm:text-4xl md:text-4xl lg:text-5xl text-left p-4 mt-3'>Bienvenido a MASTERMOVIES! <p className='p-4'/>Aquí escontrarás en qué plataformas puedes ver tus pelis y series favoritas</span>
+            </div>
+          </div>
+        </div>
+
+                       
+          <h2 className='text-2xl'>Películas populares</h2>
           {props.movies.map((movie, index) => (
             <div key={`movie${index}`}>
 						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={100} height={100} alt="" />
-              <p>{movie.title}</p>
+              <h3 className='text-l text-left'>{movie.title}</h3>
             </div>
 					))}
-          <p>Series populares</p>
+          <h2 className='text-2xl'>Series populares</h2>
           {props.series.map((serie, index) => (
             <div key={`serie${index}`}>
 						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={100} height={100} alt="" />
-              <p>{serie.name}</p>
+              <h3 className='text-l text-left'>{serie.name}</h3>
             </div>
 					))}
-        </h1>
+        
         
       </main>
     </>
