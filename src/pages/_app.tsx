@@ -1,4 +1,4 @@
-import Menu from '@/modules/menu'
+import Menu from '@/common/types/components/menu'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 
