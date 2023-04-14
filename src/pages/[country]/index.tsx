@@ -10,7 +10,7 @@ import Hero from '@/common/types/components/hero';
 type Props ={
   movies: TMDBMovie[],
   series: TMDBSerie[],
-  headerImage: string,
+  heroImage: string,
   language: string
 }
  export default function Home(props: Props) {
@@ -90,7 +90,7 @@ type Props ={
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Hero heroImage={props.headerImage}/>                       
+        <Hero heroImage={props.heroImage}/>                       
         
         <h2 className='text-2xl pt-4'>Películas populares</h2>
         <MovieContainer movies={props.movies}/>
