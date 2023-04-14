@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { TMDBSerie } from "../tmdbSerie";
+import { TMDBSerie } from "../types/tmdbSerie";
 
 type Props ={
   series: TMDBSerie[],

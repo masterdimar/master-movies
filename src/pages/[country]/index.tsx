@@ -3,14 +3,15 @@ import { TMDBMovie } from '@/common/types/tmdbMovie';
 import { TMDBSerie } from '@/common/types/tmdbSerie';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next'
 import Head from 'next/head'
-import MovieContainer from '@/common/types/components/movieContainer';
-import SerieContainer from '@/common/types/components/serieContainer';
-import Hero from '@/common/types/components/hero';
+import MovieContainer from '@/common/components/movieContainer';
+import SerieContainer from '@/common/components/serieContainer';
+import Hero from '@/common/components/hero';
 
 type Props ={
   movies: TMDBMovie[],
   series: TMDBSerie[],
   heroImage: string,
+  country: string,
   language: string
 }
  export default function Home(props: Props) {
@@ -93,7 +94,7 @@ type Props ={
         <Hero heroImage={props.heroImage}/>                       
         
         <h2 className='text-2xl pt-4'>Películas populares</h2>
-        <MovieContainer movies={props.movies}/>
+        <MovieContainer country={props.country} language={props.language} movies={props.movies}/>
 
         <h2 className='text-2xl'>Series populares</h2>
         <SerieContainer series={props.series}/>        
@@ -108,19 +109,19 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
   const language: string = context.query?.language?.toString() || "en"
 
   const randomMovieSerie: number = Math.floor(Math.random() * 2);
-  var heroBackImage: string = ""
+  var heroImage: string = ""
 
   const discoverMovies: TMDBDiscover = await fetch(`${process.env.THEMOVIEDB_API_URL}/discover/movie?api_key=${process.env.THEMOVIEDB_API_KEY}&language=${language}&sort_by=popularity.desc&watch_region=${context.params?.country}&with_watch_monetization_types=flatrate`).then((x) => x.json());
   const discoverSeries: TMDBDiscover = await fetch(`${process.env.THEMOVIEDB_API_URL}/discover/tv?api_key=${process.env.THEMOVIEDB_API_KEY}&language=${language}&sort_by=popularity.desc&watch_region=${context.params?.country}&with_watch_monetization_types=flatrate`).then((x) => x.json());
    
   if(randomMovieSerie == 0){    
     const randomMovie: number = Math.floor(Math.random() * 20);    
-    heroBackImage = `${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${discoverMovies.results[randomMovie].backdrop_path}`
+    heroImage = `${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${discoverMovies.results[randomMovie].backdrop_path}`
   }
 
   if(randomMovieSerie == 1){
     const randomSerie: number = Math.floor(Math.random() * 20);  
-    heroBackImage = `${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${discoverSeries.results[randomSerie].backdrop_path}`
+    heroImage = `${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${discoverSeries.results[randomSerie].backdrop_path}`
   }   
 
   context.res.setHeader('Cache-control', `public, s-maxage=432000, max-age=432000, stale-while-revalidate=59`);
@@ -128,8 +129,9 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
       props: {
         movies: discoverMovies.results,
         series: discoverSeries.results,
-        heroImage: heroBackImage,
-        language
+        heroImage: heroImage,
+        country: context.params?.country,
+        language: `${language}-${context.params?.country}`
       }
   }
 }
