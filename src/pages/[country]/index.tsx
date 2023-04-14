@@ -7,6 +7,8 @@ import Image from 'next/image';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MovieContainer from '@/common/types/components/movieContainer';
+import SerieContainer from '@/common/types/components/serieContainer';
 
 type Props ={
   movies: TMDBMovie[],
@@ -101,28 +103,11 @@ export default function Home(props: Props) {
         </div>
 
                        
-        <h2 className='text-2xl'>Películas populares</h2>
-        <div className='items-center justify-between bg-blue-500 h-96 p-5 pr-10 pl-10'>
-          <Slider {...settings}>
-          {props.movies.map((movie, index) => (
-            <div key={`movie${index}`}>
-						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${movie.poster_path}`} width={200} height={200} alt="" />
-              {/* <h3 className='text-l text-left'>{movie.title}</h3> */}
-            </div>
-					))}
-            </Slider>
-        </div>
+        <h2 className='text-2xl pt-4'>Películas populares</h2>
+        <MovieContainer movies={props.movies}/>
+
         <h2 className='text-2xl'>Series populares</h2>
-        <div className='items-center justify-between bg-blue-500 h-96 p-5 pr-10 pl-10'>
-          <Slider {...settings}>
-          {props.series.map((serie, index) => (
-            <div key={`movie${index}`}>
-						  <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${serie.poster_path}`} width={200} height={200} alt="" />
-              {/* <h3 className='text-l text-left'>{movie.title}</h3> */}
-            </div>
-					))}
-            </Slider>
-        </div>
+        <SerieContainer series={props.series}/>
         
         
       </main>
