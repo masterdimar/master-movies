@@ -104,7 +104,6 @@ type Props ={
   )
 }
 
-
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   const language: string = context.query?.language?.toString() || "en"
 

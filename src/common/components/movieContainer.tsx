@@ -22,7 +22,7 @@ export default function MovieContainer(props: Props) {
                                     src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`} 
                                     fill
                                     placeholder='blur'
-                                    blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}&w=16&q=1`} 
+                                    blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${movie.poster_path}&w=16&q=1`} 
                                     style={{objectFit: 'cover',}} 
                                     sizes={imageSizes} alt={movie.title}/>
                         </div>
