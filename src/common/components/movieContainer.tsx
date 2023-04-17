@@ -16,7 +16,7 @@ export default function MovieContainer(props: Props) {
         <div className='flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-gray-300'>
             {props.movies.map((movie, index) => (
                 <div key={`movie${movie.id}`} className="flex flex-shrink-0 flex-col w-32 h-72 sm:w-52 sm:h-96  ml-2 mr-2">
-                    <Link href={`/${props.country}/movie/${movie.id}?language=${props.language}`}>
+                    <Link href={`/movie/${movie.id}?language=${props.language}`}>
                         <div className="flex w-full pt-1 h-48 sm:h-80 justify-center relative">
                             <Image className="rounded-3xl" 
                                     src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`} 
