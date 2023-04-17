@@ -24,11 +24,23 @@ type Props ={
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className='flex h-72 md:h-96 lg:h-[25rem] justify-center items-center flex-col relative bg-gray-700'>
+        <div className='flex h-80 md:h-96 lg:h-[25rem] flex-col relative bg-gray-700'>
           <div className='w-full h-full bg-cover bg-center bg-gray-300'>
             <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} fill style={{objectFit: 'cover',}} alt=""/>
-            <div className='flex justify-center backdrop-brightness-50 bg-blue-600/40 w-full h-full'>
-              <span className='text-white text-2xl sm:text-4xl md:text-4xl lg:text-5xl text-left p-4 mt-3'>Bienvenido a MASTERMOVIES! <p className='p-4'/>Aquí encontrarás en qué plataformas puedes ver tus pelis y series favoritas</span>
+            <div className='flex place-content-between backdrop-brightness-50 bg-blue-600/40 flex-col w-full h-full'> 
+              <div className='text-white text-2xl sm:text-4xl md:text-5xl lg:text-5xl text-left p-4 mt-3'>
+                <span>Bienvenido a MASTERMOVIES! <p className='p-4'/>Aquí encontrarás en qué plataformas puedes ver tus pelis y series favoritas</span>
+              </div>              
+              <div className='flex items-end text-white h-full p-4 mt-3'>
+                <div className="flex flex-grow">
+                    <div className="flex flex-1">
+                        <input className="rounded-lg text-black grow" type="text"></input>                              
+                    </div>                            
+                    <div className="flex pl-2">
+                        <button className="bg-blue-300 text-blue-950 hover:bg-blue-700 font-bold py-2 px-4 rounded">BUSCAR</button>                                
+                    </div> 
+                </div> 
+              </div>
             </div>
           </div>
         </div>                    
