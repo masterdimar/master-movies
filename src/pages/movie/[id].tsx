@@ -45,9 +45,9 @@ type Props ={
                   <h1 className="font-extrabold text-2xl sm:text-5xl uppercase">{props.movie.title}</h1>
                 </div>
                 <div className="pt-2">
-                  <h3 className="text.md sm:text-lg text-gray-400">{genres}</h3>
+                  <h3 className="text.md sm:text-lg text-gray-200">{genres}</h3>
                 </div>                
-                <div className="text-md sm:text-lg text-gray-400">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
+                <div className="text-md sm:text-lg text-gray-200">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
                 <div className="hidden md:visible">
                   <div className="pt-10 w-[300px] md:w-[600px] lg:w-[700px]">
                     <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
