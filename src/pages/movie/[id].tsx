@@ -28,33 +28,41 @@ type Props ={
   return (
     <>       
       <main>
-      <div className="bg-gray-400 relative h-screen">
-        <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}`} 
-          fill
-          priority
-          style={{objectFit: 'cover',}} 
-          alt={props.movie.title}/>
-        <div className='flex place-content-between backdrop-brightness-50 bg-blue-600/5 flex-col w-full h-full'> 
-          <section>
-            <h2 className="text-white text-4xl text-left ml-4">PELICULA</h2>
-            <h1 className="text-white text-7xl text-left font-extrabold ml-4">{`${props.movie.title.toUpperCase()}`}</h1>
-            <h3 className="text-white text-2xl text-left ml-4">{genres}</h3>
-            <h4 className="text-white text-lg text-left ml-4">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</h4>  
-            <div className="pt-8 w-[20rem] sm:w-[25rem] md:w-[35rem]">
-              <h4 className="text-white text-md text-left ml-4">{props.movie.overview}</h4>
+          <div className="flex relative h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] 3xl:h-[1080px] items-center">
+            <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}`} 
+              fill
+              priority
+              placeholder='blur'
+              blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}&w=16&q=1`} 
+              style={{objectFit: 'cover', objectPosition: 'center top'}} 
+              alt={props.movie.title}/>
+            <div className="backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-20 flex items-center">
+              <section className="text-left text-white w-full">
+                <div className="">
+                  <h3 className="text-md sm:text-lg uppercase">Película</h3>
+                </div>
+                <div className="">
+                  <h1 className="font-extrabold text-2xl sm:text-5xl uppercase">{props.movie.title}</h1>
+                </div>
+                <div className="pt-2">
+                  <h3 className="text.md sm:text-lg text-gray-400">{genres}</h3>
+                </div>                
+                <div className="text-md sm:text-lg text-gray-400">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
+                <div className="hidden md:visible">
+                  <div className="pt-10 w-[300px] md:w-[600px] lg:w-[700px]">
+                    <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
+                  </div>
+                  <div className="pt-7"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
+                </div>
+              </section>
             </div>
-            <h4 className="text-white text-md text-left ml-4 pt-6">{`Protagonista: ${cast}`}</h4>
-          </section>          
-        </div>
-      </div>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
+          </div>
+          <div className="visible sm:hidden bg-gray-600 text-white">
+            <div className="pt-10 text-left">
+              <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
+            </div>
+            <div className="pt-7 text-left"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
+          </div>      
       </main>     
     </>
   )
