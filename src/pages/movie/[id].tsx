@@ -28,7 +28,7 @@ type Props ={
   return (
     <>       
       <main>
-          <div className="flex relative h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] 3xl:h-[1080px] items-center">
+          <div className="flex relative h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] 3xl:h-[1080px] items-center bg-blue-900">
             <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}`} 
               fill
               priority
@@ -48,7 +48,7 @@ type Props ={
                   <h3 className="text.md sm:text-lg text-gray-200">{genres}</h3>
                 </div>                
                 <div className="text-md sm:text-lg text-gray-200">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
-                <div className="hidden sm:block">
+                <div className="hidden md:block">
                   <div className="pt-10 w-[300px] md:w-[600px] lg:w-[700px]">
                     <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
                   </div>
@@ -57,7 +57,7 @@ type Props ={
               </section>
             </div>
           </div>
-          <div className="visible sm:hidden bg-gray-600 text-white">
+          <div className="visible md:hidden bg-gray-600 text-white">
             <div className="pt-10 text-left">
               <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
             </div>
