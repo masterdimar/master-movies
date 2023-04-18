@@ -24,8 +24,8 @@ type Props ={
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className='flex h-80 md:h-96 lg:h-[25rem] flex-col relative bg-gray-700'>
-          <div className='w-full h-full bg-cover bg-center bg-gray-300'>
+        <div className='flex h-80 md:h-96 lg:h-[25rem] flex-col relative'>
+          <div className='w-full h-full bg-cover bg-center'>
             <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} fill style={{objectFit: 'cover',}} alt=""/>
             <div className='flex place-content-between backdrop-brightness-50 bg-blue-600/40 flex-col w-full h-full'> 
               <div className='text-white text-2xl sm:text-4xl md:text-5xl lg:text-5xl text-left p-4 mt-3'>
