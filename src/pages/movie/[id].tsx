@@ -36,7 +36,7 @@ type Props ={
               blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}&w=16&q=1`} 
               style={{objectFit: 'cover', objectPosition: 'center top'}} 
               alt={props.movie.title}/>
-            <div className="backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-20 flex items-center">
+            <div className="backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 flex items-center">
               <section className="text-left text-white w-full">
                 <div className="">
                   <h3 className="text-md sm:text-lg uppercase">Película</h3>
@@ -48,8 +48,8 @@ type Props ={
                   <h3 className="text.md sm:text-lg text-gray-200">{genres}</h3>
                 </div>                
                 <div className="text-md sm:text-lg text-gray-200">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
-                <div className="hidden md:block">
-                  <div className="pt-10 w-[300px] md:w-[600px] lg:w-[700px]">
+                <div className="hidden md:block pt-10">
+                  <div className="w-[300px] md:w-[600px] lg:w-[700px] 2xl:w-[1200px] 3xl:w-[1500px] max-h-20 lg:max-h-56 2xl:max-h-64 overflow-y-auto text-justify ">
                     <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
                   </div>
                   <div className="pt-7"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
@@ -59,7 +59,7 @@ type Props ={
           </div>
           <div className="visible md:hidden bg-gray-600 text-white">
             <div className="pt-10 text-left">
-              <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
+              <h2 className="text-lg sm:text-lg lg:text-2xl text-justify">{props.movie.overview}</h2>
             </div>
             <div className="pt-7 text-left"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
           </div>      
