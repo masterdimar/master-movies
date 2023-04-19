@@ -1,3 +1,7 @@
+import { Credit } from "./credit"
+import { Genre } from "./genre"
+import { WatchProvider } from "./watchProvider"
+
 export type TMDBMovie = {
     id: number,
     genres: Genre[],
@@ -8,19 +12,5 @@ export type TMDBMovie = {
     poster_path: string,
     title: string,    
     credits?: Credit
-}
-
-export type Genre = {
-    id: number,
-    name: string
-}
-
-export type Credit = {
-    cast: Cast[]
-}
-
-export type Cast = {
-    original_name: string,
-    known_for_department: string,
-    order: number,
+    'watch/providers'?: WatchProvider
 }

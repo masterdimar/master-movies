@@ -1,6 +1,12 @@
-import { Cast, Genre, TMDBSerie } from "@/common/types/tmdbSerie"
+
 import Image from 'next/image';
 import { GetServerSideProps, GetServerSidePropsContext } from "next"
+import { TMDBSerie } from "@/common/types/tmdbSerie"
+import { Cast } from "@/common/types/cast";
+import { Genre } from "@/common/types/genre";
+import WatchProviderContainer from '@/common/components/watchProviderContainer';
+import { Provider } from '@/common/types/provider';
+
 
 type Props ={
   serie: TMDBSerie,
@@ -62,7 +68,12 @@ type Props ={
               <h2 className="text-lg sm:text-lg lg:text-2xl text-justify">{props.serie.overview}</h2>
             </div>
             <div className="pt-7 text-left"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
-          </div>      
+          </div>   
+          {
+            props.serie['watch/providers']?.watchProviderCountry &&(
+              <WatchProviderContainer watchProvider={props.serie['watch/providers'].watchProviderCountry}/>
+            )
+          }   
       </main>     
     </>
   )
@@ -71,9 +82,14 @@ type Props ={
 
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {  
   const language: string = context.query?.language?.toString() || "en-US"
+  const country: string = language.split("-")[1]
 
   const serie: TMDBSerie = await fetch(`${process.env.THEMOVIEDB_API_URL}/tv/${context.params?.id}?api_key=${process.env.THEMOVIEDB_API_KEY}&language=${language}&append_to_response=credits`).then((x) => x.json());
   
+   if(serie['watch/providers'] && serie['watch/providers']?.results[country] !== undefined)
+    serie['watch/providers'].watchProviderCountry = { rent: serie['watch/providers']?.results[country].rent.filter((rent: Provider) => rent.provider_id != 192) || null, buy: serie['watch/providers']?.results[country].buy.filter((buy: Provider) => buy.provider_id != 192) || null, flatrate: serie['watch/providers']?.results[country].flatrate || null}
+
+
   context.res.setHeader('Cache-control', `public, s-maxage=432000, max-age=432000, stale-while-revalidate=59`);
   return {
       props: {
