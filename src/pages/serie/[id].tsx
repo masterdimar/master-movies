@@ -84,12 +84,12 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
   const language: string = context.query?.language?.toString() || "en-US"
   const country: string = language.split("-")[1]
 
-  const serie: TMDBSerie = await fetch(`${process.env.THEMOVIEDB_API_URL}/tv/${context.params?.id}?api_key=${process.env.THEMOVIEDB_API_KEY}&language=${language}&append_to_response=credits`).then((x) => x.json());
+  const serie: TMDBSerie = await fetch(`${process.env.THEMOVIEDB_API_URL}/tv/${context.params?.id}?api_key=${process.env.THEMOVIEDB_API_KEY}&language=${language}&append_to_response=credits,watch/providers`).then((x) => x.json());
   
    if(serie['watch/providers'] && serie['watch/providers']?.results[country] !== undefined)
-    serie['watch/providers'].watchProviderCountry = { rent: serie['watch/providers']?.results[country].rent.filter((rent: Provider) => rent.provider_id != 192 && rent.provider_id != 1792) || null, buy: serie['watch/providers']?.results[country].buy.filter((buy: Provider) => buy.provider_id != 192 && buy.provider_id != 1792) || null, flatrate: serie['watch/providers']?.results[country].flatrate || null}
+    serie['watch/providers'].watchProviderCountry = { rent: serie['watch/providers']?.results[country].rent || null, buy: serie['watch/providers']?.results[country].buy || null, flatrate: serie['watch/providers']?.results[country].flatrate || null}
 
-
+console.log(serie['watch/providers']?.results[country])
   context.res.setHeader('Cache-control', `public, s-maxage=432000, max-age=432000, stale-while-revalidate=59`);
   return {
       props: {
