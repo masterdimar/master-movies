@@ -85,7 +85,7 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
   const movie: TMDBMovie = await fetch(`${process.env.THEMOVIEDB_API_URL}/movie/${context.params?.id}?api_key=${process.env.THEMOVIEDB_API_KEY}&language=${language}&append_to_response=credits,watch/providers`).then((x) => x.json());
   
   if(movie['watch/providers'] && movie['watch/providers']?.results[country] !== undefined)
-    movie['watch/providers'].watchProviderCountry = { rent: movie['watch/providers']?.results[country].rent.filter((rent: Provider) => rent.provider_id != 192) || null, buy: movie['watch/providers']?.results[country].buy.filter((buy: Provider) => buy.provider_id != 192) || null, flatrate: movie['watch/providers']?.results[country].flatrate || null}
+    movie['watch/providers'].watchProviderCountry = { rent: movie['watch/providers']?.results[country].rent?.filter((rent: Provider) => rent.provider_id != 192 && rent.provider_id != 1792) || null, buy: movie['watch/providers']?.results[country].buy?.filter((buy: Provider) => buy.provider_id != 192 && buy.provider_id != 1792) || null, flatrate: movie['watch/providers']?.results[country].flatrate || null}
 
   context.res.setHeader('Cache-control', `public, s-maxage=432000, max-age=432000, stale-while-revalidate=59`);
   return {
