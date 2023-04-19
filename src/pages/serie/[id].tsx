@@ -39,7 +39,7 @@ type Props ={
             <div className="backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 flex items-center">
               <section className="text-left text-white w-full">
                 <div className="">
-                  <h3 className="text-md sm:text-lg uppercase">Película</h3>
+                  <h3 className="text-md sm:text-lg uppercase">Serie</h3>
                 </div>
                 <div className="">
                   <h1 className="font-extrabold text-2xl sm:text-5xl uppercase">{props.serie.name}</h1>
