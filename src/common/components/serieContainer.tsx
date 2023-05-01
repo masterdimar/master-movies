@@ -10,7 +10,7 @@ export default function SerieContainer(props: Props) {
 
 
     return (
-        <div className='flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-gray-300'>
+        <div className='flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-black'>
             {props.series.map((serie, index) => (
                 <div key={`movie${serie.id}`} className="flex flex-shrink-0 flex-col w-32 h-72 sm:w-52 sm:h-96  ml-2 mr-2">
                     <div className="flex w-full pt-1 h-48 sm:h-80 justify-center relative">
