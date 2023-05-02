@@ -23,7 +23,8 @@ export default function MovieContainer(props: Props) {
 
     return (
         <div className='relative flex items-center'>
-            <div className='w-10 lg:w-16 ml-2'>
+            <div className='m-2 text-white text-sm'>
+                Texto centrado
                 <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
             </div>
             <div ref={sliderRef} className='flex-1 contenedorThumbs'>
@@ -47,7 +48,8 @@ export default function MovieContainer(props: Props) {
                     
                 ))}
             </div>
-            <div className='w-12 lg:w-16 mr-2'>                
+            <div className='m-2 text-white text-sm'>                
+                Texto centrado
                 <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
             </div>
         </div>
