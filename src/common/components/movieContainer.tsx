@@ -23,20 +23,20 @@ export default function MovieContainer(props: Props) {
 
     return (
         <>
-            <div className="flex">
+            <div className="flex items-center ml-2">
                 <div className="flex-1">
                     <h2>Películas populares</h2>
                 </div>
                 <div>
-                    <MdChevronLeft onClick={() => handleScroll(-500)} className='visible md:hidden flechas'/>
+                    <MdChevronLeft onClick={() => handleScroll(-300)} className='visible md:hidden flechasTitle'/>
                 </div>
                 <div>
-                    <MdChevronRight onClick={() => handleScroll(500)} className='visible md:hidden flechas'/>
+                    <MdChevronRight onClick={() => handleScroll(300)} className='visible md:hidden mr-4 flechasTitle'/>
                 </div>
             </div>
             
             <div className='relative flex items-center'>
-                <MdChevronLeft onClick={() => handleScroll(-500)} className='hidden md:block flechas'/>
+                <MdChevronLeft onClick={() => handleScroll(-500)} className='hidden md:block flechasCard'/>
                 <div ref={sliderRef} className='flex-1 contenedorThumbs'>
                     {props.movies.map((movie, index) => (
                         <div key={`movie${movie.id}`} className="thumbBox">
@@ -58,7 +58,7 @@ export default function MovieContainer(props: Props) {
                         
                     ))}
                 </div>
-                <MdChevronRight onClick={() => handleScroll(500)} className='hidden md:block flechas'/>
+                <MdChevronRight onClick={() => handleScroll(500)} className='hidden md:block flechasCard'/>
             </div>
         </>
     )
