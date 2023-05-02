@@ -23,10 +23,8 @@ export default function MovieContainer(props: Props) {
 
     return (
         <div className='relative flex items-center'>
-            <div className='m-2 text-white text-sm'>
-                Texto centrado
-                <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
-            </div>
+            <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
+
             <div ref={sliderRef} className='flex-1 contenedorThumbs'>
                 {props.movies.map((movie, index) => (
                     <div key={`movie${movie.id}`} className="thumbBox">
@@ -48,10 +46,7 @@ export default function MovieContainer(props: Props) {
                     
                 ))}
             </div>
-            <div className='m-2 text-white text-sm'>                
-                Texto centrado
-                <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
-            </div>
+            <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
         </div>
     )
 }
