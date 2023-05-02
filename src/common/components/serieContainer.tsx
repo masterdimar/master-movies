@@ -34,7 +34,10 @@ export default function SerieContainer(props: Props) {
 
     return (
         <div className='relative flex items-center'>
-            <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
+            <div className='contenedorFlechas'>
+                <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
+            </div>
+            
             <div ref={sliderRef} className='contenedorThumbs'>
                 {props.series.map((serie, index) => (
                     <div key={`serie${serie.id}`} className="thumbBox">
@@ -56,7 +59,10 @@ export default function SerieContainer(props: Props) {
                     
                 ))}
             </div>
-        <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
+            <div className='contenedorFlechas'>
+                <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
+            </div>
+        
         </div>
     )
 }

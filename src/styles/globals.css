@@ -61,6 +61,9 @@
         @apply flex w-full pl-2 text-left font-roboto font-light text-white pt-4 justify-center text-center;
     }
 
+    .contenedorFlechas {
+        @apply w-12 lg:w-16 mr-2;
+    }
     .flechas {
         @apply text-white text-4xl md:text-5xl lg:text-6xl opacity-50 cursor-pointer hover:scale-150 hover:opacity-100 ease-in-out duration-200;
     }
