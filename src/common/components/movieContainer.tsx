@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { TMDBMovie } from "../types/tmdbMovie";
 import Link from 'next/link';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useRef } from 'react';
 
 type Props ={
   movies: TMDBMovie[],
@@ -11,20 +12,20 @@ type Props ={
 export default function MovieContainer(props: Props) {
     const imageSizes: string = '(max-width: 250px) 100vw, (max-width: 500px) 50vw, (max-width: 999px) 20vw, 10vw'
 
-    const slideLeft = () => {
-        var slider = document.getElementById('slider')
-        slider.scrollLeft = slider.scrollLeft - 500
-    }
+    const sliderRef = useRef<HTMLDivElement>(null);
 
-    const slideRight = () => {
-        var slider = document.getElementById('slider')
-        slider.scrollLeft = slider.scrollLeft + 500
+    function handleScroll(amount: number) {
+        //const sliderElement = sliderRef.current;
+        if (sliderRef.current != null) {
+            sliderRef.current.scrollLeft += amount;
+        }
+
     }
 
     return (
         <div className='relative flex items-center'>
-            <MdChevronLeft onClick={slideLeft} className='flechas'/>
-            <div id="slider" className='contenedorThumbs'>
+            <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
+            <div ref={sliderRef} className='contenedorThumbs'>
             {props.movies.map((movie, index) => (
                 <div key={`movie${movie.id}`} className="thumbBox">
                     <Link href={`/movie/${movie.id}?language=${props.language}`}>
@@ -45,7 +46,7 @@ export default function MovieContainer(props: Props) {
                 
 			))}
         </div>
-        <MdChevronRight onClick={slideRight} className='flechas'/>
+        <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
         </div>
     )
 }

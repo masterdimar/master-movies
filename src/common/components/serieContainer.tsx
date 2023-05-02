@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { TMDBSerie } from "../types/tmdbSerie";
 import Link from 'next/link';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useRef } from 'react';
 
 type Props ={
   series: TMDBSerie[],
@@ -10,7 +11,17 @@ type Props ={
 
 export default function SerieContainer(props: Props) {
     const imageSizes: string = '(max-width: 250px) 100vw, (max-width: 500px) 50vw, (max-width: 999px) 20vw, 10vw'
+    
+    const sliderRef = useRef<HTMLDivElement>(null);
 
+    function handleScroll(amount: number) {
+        //const sliderElement = sliderRef.current;
+        if (sliderRef.current != null) {
+            sliderRef.current.scrollLeft += amount;
+        }
+
+    }
+    /*
     const slideLeft = () => {
         var slider = document.getElementById('sliderMovies')
         slider.scrollLeft = slider.scrollLeft - 500
@@ -19,12 +30,12 @@ export default function SerieContainer(props: Props) {
     const slideRight = () => {
         var slider = document.getElementById('sliderMovies')
         slider.scrollLeft = slider.scrollLeft + 500
-    }
+    } */
 
     return (
         <div className='relative flex items-center'>
-            <MdChevronLeft onClick={slideLeft} className='flechas'/>
-            <div id="sliderMovies" className='contenedorThumbs'>
+            <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
+            <div ref={sliderRef} className='contenedorThumbs'>
                 {props.series.map((serie, index) => (
                     <div key={`serie${serie.id}`} className="thumbBox">
                         <Link href={`/serie/${serie.id}?language=${props.language}`}>
@@ -45,7 +56,7 @@ export default function SerieContainer(props: Props) {
                     
                 ))}
             </div>
-        <MdChevronRight onClick={slideRight} className='flechas'/>
+        <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
         </div>
     )
 }
