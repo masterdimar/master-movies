@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body className='container mx-auto text-center'>
+      <body className='bg-gray-950 container mx-auto text-center'>
         <Main />
         <NextScript />
       </body>

@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@layer base {
+    .font-roboto {
+        font-family: 'Roboto', sans-serif;
+      }
+
+    h2 {
+        @apply font-roboto font-light text-3xl pt-4 text-white text-left;
+    }
+    .header { 
+        @apply flex md:h-96 lg:h-[25rem] flex-col relative;
+        @apply w-full h-full bg-cover bg-center bg-gray-950;
+    }
+
+    .btnBuscar {
+        @apply bg-white text-blue-950 hover:bg-white font-roboto py-2 px-4 rounded;
+    }
+    .bgGeneral {
+        @apply bg-gray-950;
+    }
+
+    .inputSearch {
+        /*px-4 py-2 rounded-lg text-gray-950 border-2 border-red-500 focus:outline-none focus:border-red-500 focus:shadow-outline-red w-full placeholder-gray-400 grow */
+        @apply px-10 py-2 rounded-[16px] font-roboto font-light text-2xl text-gray-950 border-2 border-red-500 w-full placeholder-gray-950 grow;
+    }
+
+    .headerText {
+        @apply font-roboto font-light text-white text-3xl text-center p-4 mt-3;
+    }
+     
+}

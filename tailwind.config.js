@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'material-icons': ['Material Icons'],
+      },
       container:{
         screens: {
           sm: '640px',
