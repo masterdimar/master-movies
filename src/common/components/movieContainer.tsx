@@ -22,31 +22,44 @@ export default function MovieContainer(props: Props) {
     }
 
     return (
-        <div className='relative flex items-center'>
-            <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
-
-            <div ref={sliderRef} className='flex-1 contenedorThumbs'>
-                {props.movies.map((movie, index) => (
-                    <div key={`movie${movie.id}`} className="thumbBox">
-                        <Link href={`/movie/${movie.id}?language=${props.language}`}>
-                            <div className="thumbIMG">
-                                <Image className="thumbIMGBorder" 
-                                        src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`} 
-                                        fill
-                                        placeholder='blur'
-                                        blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${movie.poster_path}&w=16&q=1`} 
-                                        style={{objectFit: 'cover',}} 
-                                        sizes={imageSizes} alt={movie.title}/>
-                            </div>
-                            <div className="thumbTXT">
-                                <h3>{movie.title}</h3>
-                            </div>
-                        </Link>                    
-                    </div>
-                    
-                ))}
+        <>
+            <div className="flex">
+                <div className="flex-1">
+                    <h2>Películas populares</h2>
+                </div>
+                <div>
+                    <MdChevronLeft onClick={() => handleScroll(-500)} className='visible md:hidden flechas'/>
+                </div>
+                <div>
+                    <MdChevronRight onClick={() => handleScroll(500)} className='visible md:hidden flechas'/>
+                </div>
             </div>
-            <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
-        </div>
+            
+            <div className='relative flex items-center'>
+                <MdChevronLeft onClick={() => handleScroll(-500)} className='hidden md:block flechas'/>
+                <div ref={sliderRef} className='flex-1 contenedorThumbs'>
+                    {props.movies.map((movie, index) => (
+                        <div key={`movie${movie.id}`} className="thumbBox">
+                            <Link href={`/movie/${movie.id}?language=${props.language}`}>
+                                <div className="thumbIMG">
+                                    <Image className="thumbIMGBorder" 
+                                            src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`} 
+                                            fill
+                                            placeholder='blur'
+                                            blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${movie.poster_path}&w=16&q=1`} 
+                                            style={{objectFit: 'cover',}} 
+                                            sizes={imageSizes} alt={movie.title}/>
+                                </div>
+                                <div className="thumbTXT">
+                                    <h3>{movie.title}</h3>
+                                </div>
+                            </Link>                    
+                        </div>
+                        
+                    ))}
+                </div>
+                <MdChevronRight onClick={() => handleScroll(500)} className='hidden md:block flechas'/>
+            </div>
+        </>
     )
 }

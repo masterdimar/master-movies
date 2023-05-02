@@ -40,8 +40,7 @@ type Props ={
                 </div>                       
             </div>
           </div>
-        </div>                            
-        <h2>Películas populares</h2>
+        </div>                                    
         <MovieContainer language={props.language} movies={props.movies}/>
 
         <h2>Series populares</h2>
