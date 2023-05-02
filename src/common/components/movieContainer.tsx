@@ -15,7 +15,6 @@ export default function MovieContainer(props: Props) {
     const sliderRef = useRef<HTMLDivElement>(null);
 
     function handleScroll(amount: number) {
-        //const sliderElement = sliderRef.current;
         if (sliderRef.current != null) {
             sliderRef.current.scrollLeft += amount;
         }
@@ -24,7 +23,9 @@ export default function MovieContainer(props: Props) {
 
     return (
         <div className='relative flex items-center'>
+            <div className='p-5 bg-red-100'>
             <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
+            </div>
             <div ref={sliderRef} className='contenedorThumbs'>
             {props.movies.map((movie, index) => (
                 <div key={`movie${movie.id}`} className="thumbBox">
@@ -46,7 +47,9 @@ export default function MovieContainer(props: Props) {
                 
 			))}
         </div>
+        <div className="p-5 bg-red-100">
         <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
+        </div>
         </div>
     )
 }
