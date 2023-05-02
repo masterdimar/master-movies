@@ -23,33 +23,33 @@ export default function MovieContainer(props: Props) {
 
     return (
         <div className='relative flex items-center'>
-            <div className='p-5 bg-red-100'>
-            <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
+            <div className='w-10 lg:w-16 ml-2'>
+                <MdChevronLeft onClick={() => handleScroll(-500)} className='flechas'/>
             </div>
-            <div ref={sliderRef} className='contenedorThumbs'>
-            {props.movies.map((movie, index) => (
-                <div key={`movie${movie.id}`} className="thumbBox">
-                    <Link href={`/movie/${movie.id}?language=${props.language}`}>
-                        <div className="thumbIMG">
-                            <Image className="thumbIMGBorder" 
-                                    src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`} 
-                                    fill
-                                    placeholder='blur'
-                                    blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${movie.poster_path}&w=16&q=1`} 
-                                    style={{objectFit: 'cover',}} 
-                                    sizes={imageSizes} alt={movie.title}/>
-                        </div>
-                        <div className="thumbTXT">
-                            <h3>{movie.title}</h3>
-                        </div>
-                    </Link>                    
-                </div>
-                
-			))}
-        </div>
-        <div className="p-5 bg-red-100">
-        <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
-        </div>
+            <div ref={sliderRef} className='flex-1 contenedorThumbs'>
+                {props.movies.map((movie, index) => (
+                    <div key={`movie${movie.id}`} className="thumbBox">
+                        <Link href={`/movie/${movie.id}?language=${props.language}`}>
+                            <div className="thumbIMG">
+                                <Image className="thumbIMGBorder" 
+                                        src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`} 
+                                        fill
+                                        placeholder='blur'
+                                        blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${movie.poster_path}&w=16&q=1`} 
+                                        style={{objectFit: 'cover',}} 
+                                        sizes={imageSizes} alt={movie.title}/>
+                            </div>
+                            <div className="thumbTXT">
+                                <h3>{movie.title}</h3>
+                            </div>
+                        </Link>                    
+                    </div>
+                    
+                ))}
+            </div>
+            <div className='w-12 lg:w-16 mr-2'>                
+                <MdChevronRight onClick={() => handleScroll(500)} className='flechas'/>
+            </div>
         </div>
     )
 }
