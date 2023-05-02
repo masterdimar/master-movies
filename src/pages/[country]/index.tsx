@@ -27,7 +27,7 @@ type Props ={
       <main>
         <div className='header'>
           <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.headerImage}`} fill style={{objectFit: 'cover',}} alt=""/>
-          <div className='flex place-content-between backdrop-brightness-50 bg-gray-950/40 flex-col items-center'> 
+          <div className='headerImgBG'> 
             <div className='headerText'>
               <span>Encuentra todas las Películas y Series en todas las plataformas</span>
             </div>              
