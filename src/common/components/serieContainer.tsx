@@ -12,19 +12,19 @@ export default function SerieContainer(props: Props) {
     const imageSizes: string = '(max-width: 250px) 100vw, (max-width: 500px) 50vw, (max-width: 999px) 20vw, 10vw'
 
     const slideLeft = () => {
-        var slider = document.getElementById('slider')
+        var slider = document.getElementById('sliderMovies')
         slider.scrollLeft = slider.scrollLeft - 500
     }
 
     const slideRight = () => {
-        var slider = document.getElementById('slider')
+        var slider = document.getElementById('sliderMovies')
         slider.scrollLeft = slider.scrollLeft + 500
     }
-    
+
     return (
         <div className='relative flex items-center'>
             <MdChevronLeft onClick={slideLeft} className='flechas'/>
-            <div id="slider" className='contenedorThumbs'>
+            <div id="sliderMovies" className='contenedorThumbs'>
                 {props.series.map((serie, index) => (
                     <div key={`serie${serie.id}`} className="thumbBox">
                         <Link href={`/serie/${serie.id}?language=${props.language}`}>
