@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+
 @layer base {
     .font-roboto {
         font-family: 'Roboto', sans-serif;
@@ -30,7 +31,7 @@
     }
 
     .headerText {
-        @apply font-roboto font-light text-white text-3xl text-center p-4 mt-3;
+        @apply font-roboto font-light text-white text-3xl text-center p-4 mt-3 sm:text-2xl md:text-3xl;
     }
     
     .headerImgBG {
@@ -40,7 +41,8 @@
     /* CONTENEDORES  */
 
     .contenedorThumbs {
-        @apply flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-gray-950;
+       /* @apply flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-gray-950; */
+       @apply flex flex-row overflow-y-hidden overflow-x-scroll scroll-smooth pt-4 bg-gray-950;
     }
 
     .thumbBox {
@@ -48,7 +50,7 @@
     }
 
     .thumbIMG {
-        @apply flex w-full pt-1 h-48 sm:h-80 justify-center relative hover:opacity-75;
+        @apply flex w-full pt-1 h-48 inline-block sm:h-80 justify-center relative hover:scale-105 ease-in-out duration-300;
     }
 
     .thumbIMGBorder {
@@ -56,6 +58,6 @@
     }
 
     .thumbTXT {
-        @apply flex w-full pl-2 text-left font-roboto font-light text-white pt-4 justify-center;
+        @apply flex w-full pl-2 text-left font-roboto font-light text-white pt-4 justify-center text-center;
     }
 }

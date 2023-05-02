@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { TMDBSerie } from "../types/tmdbSerie";
 import Link from 'next/link';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 type Props ={
   series: TMDBSerie[],
@@ -13,8 +14,9 @@ export default function SerieContainer(props: Props) {
 
     return (
         <div className='contenedorThumbs'>
+            <MdChevronLeft size={40} color='white'/>
             {props.series.map((serie, index) => (
-                <div key={`serie${serie.id}`} className="thumbBox">
+                <div key={`serie${serie.id}`} id='slider' className="thumbBox">
                     <Link href={`/serie/${serie.id}?language=${props.language}`}>
                         <div className="thumbIMG">
                             <Image className="thumbIMGBorder" 
@@ -32,6 +34,7 @@ export default function SerieContainer(props: Props) {
                 </div>
                 
 			))}
+        <MdChevronRight size={40} />
         </div>
     )
 }
