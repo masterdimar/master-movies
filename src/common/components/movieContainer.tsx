@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 type Props ={
   movies: TMDBMovie[],
-  country: string,
   language: string
 }
 
@@ -17,8 +16,8 @@ export default function MovieContainer(props: Props) {
             {props.movies.map((movie, index) => (
                 <div key={`movie${movie.id}`} className="flex flex-shrink-0 flex-col w-32 h-72 sm:w-52 sm:h-96  ml-2 mr-2">
                     <Link href={`/movie/${movie.id}?language=${props.language}`}>
-                        <div className="flex w-full pt-1 h-48 sm:h-80 justify-center relative">
-                            <Image className="rounded-3xl" 
+                        <div className="flex w-full pt-1 h-48 sm:h-80 justify-center relative hover:opacity-75">
+                            <Image className="rounded-2xl shadow-2xl" 
                                     src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`} 
                                     fill
                                     placeholder='blur'
