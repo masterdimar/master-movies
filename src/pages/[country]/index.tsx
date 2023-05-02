@@ -31,7 +31,7 @@ type Props ={
             <div className='headerText'>
               <span>Encuentra todas las Películas y Series en todas las plataformas</span>
             </div>              
-            <div className='flex text-white h-full p-4 mt-5 w-4/5'>
+            <div className='flex text-white align-bottom p-4 mt-5 w-4/5'>
                 <div className='relative flex flex-1 flex-grow'>
                     <input type="text" className="inputSearch" placeholder="Search..."></input>
                     <div className="absolute inset-y-0 left-0 flex items-center px-3">

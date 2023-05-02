@@ -14,8 +14,7 @@
         @apply font-roboto font-light text-3xl pt-4 text-white text-left;
     }
     .header { 
-        @apply flex md:h-96 lg:h-[25rem] flex-col relative;
-        @apply w-full h-full bg-cover bg-center bg-gray-950;
+        @apply flex w-full h-72 md:h-[21rem] lg:h-96 flex-col bg-cover bg-center bg-gray-950 relative;
     }
 
     .btnBuscar {
@@ -27,15 +26,15 @@
 
     .inputSearch {
         /*px-4 py-2 rounded-lg text-gray-950 border-2 border-red-500 focus:outline-none focus:border-red-500 focus:shadow-outline-red w-full placeholder-gray-400 grow */
-        @apply px-10 py-2 rounded-[16px] font-roboto font-light text-2xl text-gray-950 border-2 border-red-500 w-full placeholder-gray-950 grow;
+        @apply px-10 py-2 rounded-[16px] font-roboto font-light text-lg sm:text-2xl text-gray-950 border-2 border-red-500 w-full placeholder-gray-950 grow;
     }
 
     .headerText {
-        @apply font-roboto font-light text-white text-3xl text-center p-4 mt-3 sm:text-2xl md:text-3xl;
+        @apply font-roboto font-light text-white text-3xl sm:text-5xl md:text-6xl text-center p-4 mt-3;
     }
     
     .headerImgBG {
-        @apply flex place-content-between backdrop-brightness-50 bg-gray-950/40 flex-col items-center;
+        @apply flex place-content-between h-full backdrop-brightness-50 bg-gray-950/40 flex-col items-center;
     }
 
     /* CONTENEDORES  */
