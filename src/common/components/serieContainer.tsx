@@ -20,6 +20,7 @@ export default function SerieContainer(props: Props) {
         var slider = document.getElementById('slider')
         slider.scrollLeft = slider.scrollLeft + 500
     }
+    
     return (
         <div className='relative flex items-center'>
             <MdChevronLeft onClick={slideLeft} className='flechas'/>
