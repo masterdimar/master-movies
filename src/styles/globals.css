@@ -11,7 +11,7 @@
       }
 
     h2 {
-        @apply font-roboto font-light text-3xl pt-4 text-white text-left;
+        @apply font-roboto font-light text-3xl pt-4 text-white text-left flex items-center;
     }
     .header { 
         @apply flex w-full h-72 md:h-[21rem] lg:h-96 flex-col bg-cover bg-center bg-gray-950 relative;
