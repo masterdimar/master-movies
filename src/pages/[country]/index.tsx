@@ -33,7 +33,7 @@ type Props ={
             </div>              
             <div className='flex text-white align-center p-4 mt-5 w-4/5'>
                 <div className='relative flex flex-1 flex-grow'>
-                    <input type="text" className="inputSearch" placeholder="Search..."></input>
+                    <input type="text" className="inputSearch" placeholder="Search for movies and series..."></input>
                     <div className="absolute inset-y-0 left-0 flex items-center px-3">
                       <span className='material-icons text-gray-950'>search</span>
                     </div>                              
