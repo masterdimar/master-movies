@@ -23,20 +23,20 @@ export default function SerieContainer(props: Props) {
     
     return (
         <>
-            <div className="flex items-center ml-2">
-                <div className="flex-1">
-                    <h2>Series populares</h2>
-                </div>
-                <div>
-                    <MdChevronLeft onClick={() => handleScroll(-300)} className='visible md:hidden flechasTitle'/>
-                </div>
-                <div>
-                    <MdChevronRight onClick={() => handleScroll(300)} className='visible md:hidden mr-4 flechasTitle'/>
+            <div className="contenedorTituloThumbs">
+                <div className="contenedorFlechas">
+                    <h2 className='mr-2'>Series populares</h2>
+                    <div>
+                        <MdChevronLeft onClick={() => handleScroll(-300)} className='flechasTitle'/>
+                    </div>
+                    <div>
+                        <MdChevronRight onClick={() => handleScroll(300)} className='mr-4 flechasTitle'/>
+                    </div>
                 </div>
             </div>
 
             <div className='relative flex items-center'>
-                <MdChevronLeft onClick={() => handleScroll(-500)} className='hidden md:block flechasCard'/>
+                
                 <div ref={sliderRef} className='flex-1 contenedorThumbs'>
                     {props.series.map((serie, index) => (
                         <div key={`serie${serie.id}`} className="thumbBox">
@@ -58,7 +58,7 @@ export default function SerieContainer(props: Props) {
                         
                     ))}
                 </div>
-                <MdChevronRight onClick={() => handleScroll(500)} className='hidden md:block flechasCard'/>
+                
             </div>
         </>        
     )

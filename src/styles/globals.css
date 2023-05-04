@@ -11,10 +11,10 @@
       }
 
     h2 {
-        @apply font-roboto font-light text-3xl pt-4 text-white text-left flex items-center;
+        @apply font-roboto font-light text-3xl text-white text-left flex items-center;
     }
     .header { 
-        @apply flex w-full h-72 md:h-[21rem] lg:h-96 flex-col bg-cover bg-center bg-gray-950 relative;
+        @apply flex w-full h-72 md:h-[21rem] lg:h-72 flex-col bg-cover bg-center bg-gray-950 relative;
     }
 
     .btnBuscar {
@@ -30,14 +30,16 @@
     }
 
     .headerText {
-        @apply font-roboto font-light text-white text-3xl sm:text-5xl md:text-6xl text-center p-4 mt-3;
+        @apply font-roboto font-light text-white text-3xl sm:text-4xl md:text-4xl text-center p-4 mt-10 items-center;
     }
     
     .headerImgBG {
-        @apply flex place-content-between h-full backdrop-brightness-50 bg-gray-950/40 flex-col items-center;
+        @apply flex h-full backdrop-brightness-50 bg-gray-950/40 flex-col items-center;
     }
 
-    /* CONTENEDORES  */
+
+    /* -----------------------  */
+    /* CONTENEDORES THUMBNAILS  */
 
     .contenedorThumbs {
        /* @apply flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-gray-950; */
@@ -49,7 +51,7 @@
     }
 
     .thumbIMG {
-        @apply flex w-full pt-1 h-48 inline-block sm:h-80 justify-center relative hover:scale-105 ease-in-out duration-300;
+        @apply flex w-full h-48 inline-block sm:h-80 justify-center relative hover:scale-105 ease-in-out duration-300;
     }
 
     .thumbIMGBorder {
@@ -57,16 +59,22 @@
     }
 
     .thumbTXT {
-        @apply flex w-full pl-2 text-left font-roboto font-light text-white pt-4 justify-center text-center;
+        @apply flex w-full text-left font-roboto font-light text-white pt-4 justify-center text-center;
     }
 
-    .contenedorFlechas {
-        @apply m-2 text-white text-sm;
+    .contenedorTituloThumbs {
+        @apply flex items-center ml-2 mt-10;
     }
+    .contenedorFlechas {
+        @apply flex-1 flex items-center;
+    }
+
+    /* FLECHAS */
+
     .flechasCard {
         @apply m-4 text-white text-5xl lg:text-6xl opacity-50 cursor-pointer hover:scale-150 hover:opacity-100 ease-in-out duration-200;
     }
     .flechasTitle {
-        @apply m-2 text-white text-2xl opacity-50 cursor-pointer hover:scale-150 hover:opacity-100 ease-in-out duration-200;
+        @apply m-2 mt-3 text-white text-3xl opacity-50 cursor-pointer hover:scale-150 hover:opacity-100 ease-in-out duration-200;
     }
 }
