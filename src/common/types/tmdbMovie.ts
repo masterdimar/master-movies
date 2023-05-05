@@ -10,7 +10,9 @@ export type TMDBMovie = {
     runtime: number,
     release_date: string,
     poster_path: string,
-    title: string,    
+    title: string,   
+    original_title: string,
+    vote_average: number, 
     credits?: Credit
     'watch/providers'?: WatchProvider
 }

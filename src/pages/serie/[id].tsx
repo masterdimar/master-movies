@@ -72,6 +72,10 @@ type Props ={
             </div>
             <div className="pt-7 text-left"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
           </div>   
+          <div className='bg-gray-500'>
+            <h2>Titulo Original: {props.serie.original_name}</h2>
+            <h2>Puntaje: {Math.round(props.serie.vote_average * 10) / 10}</h2>
+          </div>
           {
             props.serie['watch/providers']?.watchProviderCountry &&(
               <WatchProviderContainer watchProvider={props.serie['watch/providers'].watchProviderCountry}/>

@@ -6,7 +6,7 @@ type Props ={
 
 export default function WatchProviderContainer(props: Props) {    
     return (
-        <div className=''>
+        <div className='bg-gray-500'>
             {
                 props.watchProvider.flatrate && (
                     <div>

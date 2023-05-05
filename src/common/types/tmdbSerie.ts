@@ -12,6 +12,8 @@ export type TMDBSerie = {
     poster_path: string,
     name: string,
     number_of_seasons: number,
+    original_name: string,
+    vote_average: number, 
     credits?: Credit,
     'watch/providers'?: WatchProvider
 }
