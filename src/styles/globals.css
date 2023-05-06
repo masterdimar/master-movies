@@ -45,7 +45,7 @@
     /* MENU TOP */
 
     .menuTop {
-        @apply text-white p-3 font-lato;
+        @apply flex mr-1 mb-4 sm:m-2 text-white p-3 font-lato;
     }
 
     /* -----------------------  */
@@ -57,11 +57,11 @@
     }
 
     .thumbBox {
-        @apply flex flex-shrink-0 flex-col w-32 h-72 sm:w-52 sm:h-96  ml-2 mr-2;
+        @apply flex flex-shrink-0 flex-col w-32 h-72 sm:w-52 sm:h-96 ml-2 mr-2;
     }
 
     .thumbIMG {
-        @apply flex w-full h-48 inline-block sm:h-80 justify-center relative hover:scale-105 ease-in-out duration-300;
+        @apply flex h-48 sm:h-80 inline-block justify-center relative hover:scale-105 ease-in-out duration-300;
     }
 
     .thumbIMGBorder {
@@ -90,7 +90,7 @@
     }
 
     /* ************ */
-    /* ID           */
+    /* ID MOVIES & SERIES  */
     /* ************ */
     .mainIMG {
         /*@apply flex relative h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] 3xl:h-[1080px] items-center bgGeneral; */
@@ -99,6 +99,31 @@
 
     .bgBackdrop {
         @apply backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 flex items-center;
+    }
+
+    .sectionGral {
+        @apply text-left text-white w-full;
+    }
+
+    .titTipo {
+        /* text-md sm:text-lg uppercase */
+        @apply text-base sm:text-2xl text-white uppercase;
+    }
+
+    .thumbID {
+        /* thumbIMG sin hover */
+        @apply flex  mt-4 h-48 w-32 sm:w-52 sm:h-80 inline-block justify-center relative;
+
+        /*w-32 flex-shrink-0 flex-col w-32 h-72 sm:w-52 sm:h-96  ml-2 mr-2 inline-block relative;*/
+        /* flex flex-shrink-0 flex-col w-32 h-72 sm:w-52 sm:h-96  ml-2 mr-2 */
+    }
+
+    .textoID {
+        @apply text-base sm:text-lg text-gray-200;
+    }
+
+    .titID {
+        @apply font-extrabold text-2xl sm:text-5xl uppercase;
     }
 
 }

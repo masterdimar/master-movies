@@ -9,11 +9,14 @@ import { StreamingAvailability } from '@/common/types/streamingAvailability';
 import GetStreamingAvailability from '@/common/utils/StreamingAvailability';
 import StreamingTBDMAvailibityUnion from '@/common/utils/StreamingTMDBAvailibility';
 
+
 type Props ={
   movie: TMDBMovie,
   language: string
 }
  export default function Movie(props: Props) {
+  const imageSizes: string = '(max-width: 250px) 100vw, (max-width: 500px) 50vw, (max-width: 999px) 20vw, 10vw'
+
   let genres : string = ""
   props.movie.genres.map((genre: Genre) => {
     if(genres == "")
@@ -34,8 +37,9 @@ type Props ={
 
   return (
     <>       
-      <main>
-          <div className="flex relative h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] 3xl:h-[1080px] items-center bg-blue-900">
+      <main className='mt-10 sm:mt-0'>
+
+          <div className="mainIMG">
             <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}`} 
               fill
               priority
@@ -43,24 +47,40 @@ type Props ={
               blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}&w=16&q=1`} 
               style={{objectFit: 'cover', objectPosition: 'center top'}} 
               alt={props.movie.title}/>
-            <div className="backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 flex items-center">
-              <section className="text-left text-white w-full">
+            <div className="bgBackdrop">
+              <section className="sectionGral">
                 <div className="">
-                  <h3 className="text-md sm:text-lg uppercase">Película</h3>
+                  <h3 className="titTipo">Película</h3>
                 </div>
+                
                 <div className="">
-                  <h1 className="font-extrabold text-2xl sm:text-5xl uppercase">{props.movie.title}</h1>
+                  <h1 className="titID">{props.movie.title}</h1>
                 </div>
                 <div className="pt-2">
-                  <h3 className="text.md sm:text-lg text-gray-200">{genres}</h3>
-                </div>                
-                <div className="text-md sm:text-lg text-gray-200">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
+                  <h3 className="textoID">{genres}</h3>
+                  <div className="textoID">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
+                </div>
+                 
+                <div className="">
+                  <div className="thumbID">
+                    <Image className="thumbIMGBorder" 
+                            src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${props.movie.poster_path}`} 
+                            fill
+                            placeholder='blur'
+                            blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${props.movie.poster_path}&w=16&q=1`} 
+                            style={{objectFit: 'cover',}} 
+                            sizes={imageSizes} alt={props.movie.title}/>
+                    <div className="text-base">Your description goes here</div>
+                  </div>
+                </div>
+
                 <div className="hidden md:block pt-10">
                   <div className="w-[300px] md:w-[600px] lg:w-[700px] 2xl:w-[1200px] 3xl:w-[1500px] max-h-20 lg:max-h-56 2xl:max-h-64 overflow-y-auto text-justify ">
                     <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
                   </div>
                   <div className="pt-7"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
                 </div>
+
               </section>
             </div>
           </div>

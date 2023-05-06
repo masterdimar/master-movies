@@ -9,15 +9,15 @@ export default function Menu() {
     return(
         <>
             <nav className="flex justify-between flex-wrap bg-gray-950" >
-                <div className="flex flex-1 m-2 menuTop">
+                <div className="flex-1 menuTop">
                     LOGO
                 </div>
-                <div className="flex m-2 menuTop">
+                <div className="menuTop">
                     Idioma                    
                 </div>
                 {
                     !isOpen && (
-                        <div className="flex m-2 menuTop">
+                        <div className="menuTop">
                             <button onClick={handleFindClick}>Buscar</button>               
                         </div>
                     )
@@ -25,7 +25,7 @@ export default function Menu() {
                 {
                     isOpen && (
                         <>
-                        <div className="flex m-2 menuTop">
+                        <div className="menuTop">
                             <button onClick={handleFindClick}>Cerrar</button>               
                         </div>
                         <div id="menu" className="w-full block pt-4 pb-4 items-center justify-center">
