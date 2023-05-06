@@ -94,11 +94,13 @@
     /* ************ */
     .mainIMG {
         /*@apply flex relative h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] 3xl:h-[1080px] items-center bgGeneral; */
-        @apply flex relative h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] items-center bgGeneral;
+        /* header>> @apply flex w-full h-72 md:h-[21rem] lg:h-72 flex-col bg-cover bg-center bgGeneral relative;*/
+        @apply flex flex-col h-60 sm:h-96 md:h-[30rem] lg:h-[35rem] xl:h-[720px] 2xl:h-[864px] items-center bgGeneral bg-cover bg-center relative;
     }
 
     .bgBackdrop {
-        @apply backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 flex items-center;
+        /* headerIMG @apply flex h-full backdrop-brightness-50 bg-gray-950/40 flex-col items-center; */
+        @apply flex flex-col backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 items-center;
     }
 
     .sectionGral {

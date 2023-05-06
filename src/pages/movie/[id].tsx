@@ -37,18 +37,16 @@ type Props ={
 
   return (
     <>       
-      <main className='mt-10 sm:mt-0'>
+      <main>
 
           <div className="mainIMG">
             <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}`} 
               fill
-              priority
-              placeholder='blur'
-              blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}&w=16&q=1`} 
               style={{objectFit: 'cover', objectPosition: 'center top'}} 
               alt={props.movie.title}/>
+            
             <div className="bgBackdrop">
-              <section className="sectionGral">
+              <span className="sectionGral">
                 <div className="">
                   <h3 className="titTipo">Película</h3>
                 </div>
@@ -70,7 +68,7 @@ type Props ={
                             blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${props.movie.poster_path}&w=16&q=1`} 
                             style={{objectFit: 'cover',}} 
                             sizes={imageSizes} alt={props.movie.title}/>
-                    <div className="text-base">Your description goes here</div>
+
                   </div>
                 </div>
 
@@ -81,7 +79,7 @@ type Props ={
                   <div className="pt-7"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
                 </div>
 
-              </section>
+              </span>
             </div>
           </div>
           <div className="visible md:hidden bg-gray-600 text-white">
