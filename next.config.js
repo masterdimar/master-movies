@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const { withAxiom } = require('next-axiom');
+const nextConfig = withAxiom({
   reactStrictMode: true,
   images: {
 		domains: [
@@ -13,6 +14,6 @@ const nextConfig = {
     THEMOVIEDB_POSTER_SIZE_CARD_MIN: process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN,
     THEMOVIEDB_BACKDROP_SIZE: process.env.THEMOVIEDB_BACKDROP_SIZE,
   }
-}
+})
 
 module.exports = nextConfig
