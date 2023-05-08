@@ -1,0 +1,24 @@
+{
+    "providers": [
+        {
+            "TMDBProviderID": 2,
+            "StreamingAvailibilityProviderID": "apple"
+        },
+        {
+            "TMDBProviderID": 8,
+            "StreamingAvailibilityProviderID": "netflix"
+        },
+        {
+            "TMDBProviderID": 386,
+            "StreamingAvailibilityProviderID": "peacock"
+        },
+        {
+            "TMDBProviderID": 387,
+            "StreamingAvailibilityProviderID": "peacock"
+        },
+        {
+            "TMDBProviderID": 10,
+            "StreamingAvailibilityProviderID": "prime"
+        }
+    ]
+}
