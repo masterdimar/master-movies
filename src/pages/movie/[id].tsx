@@ -59,13 +59,9 @@ type Props ={
                     <div className="textoID">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
                   </div>
 
-                <div className="flex justify-center">
-                  <div className="bg-blue-300 p-4">Child 1</div>
-                  <div className="bg-green-300 p-4">Child 2</div>
-                  <div className="bg-red-300 p-4">Child 3</div>
-                </div>
                 
-                <div className="flex">
+                
+                <div className="md:flex sm:flex-line">
                   <div className=''>
                       <div className="thumbID">
                         <Image className="thumbIMGBorder" 
@@ -76,22 +72,24 @@ type Props ={
                             sizes={imageSizes} alt={props.movie.title}/>    
                       </div>
                   </div>
-                  <div className="descripcionID">
-                      <span>{props.movie.overview}</span>
-                      <div className="pt-4">
-                        <span className="textoResaltado">Protagonistas: </span>
-                        <span>{cast}</span>
-                      </div>
-                      <div>
-                        <span>Puntaje: {Math.round(props.movie.vote_average * 10) / 10}</span>
-                      </div>
-                      <div>
-                          {
-                            props.movie['watch/providers']?.watchProviderCountry &&(
-                              <WatchProviderContainer watchProvider={props.movie['watch/providers'].watchProviderCountry}/>
-                            )
-                          }  
-                      </div> 
+                  <div className=''> 
+                    <div className="descripcionID">
+                        <span>{props.movie.overview}</span>
+                        <div className="pt-4">
+                          <span className="textoResaltado">Protagonistas: </span>
+                          <span>{cast}</span>
+                        </div>
+                        <div>
+                          <span><span className="textoResaltado">Puntaje: </span> {Math.round(props.movie.vote_average * 10) / 10}</span>
+                        </div>
+                        <div>
+                            {
+                              props.movie['watch/providers']?.watchProviderCountry &&(
+                                <WatchProviderContainer watchProvider={props.movie['watch/providers'].watchProviderCountry}/>
+                              )
+                            }  
+                        </div> 
+                  </div>
                   </div>
 
                 </div>
