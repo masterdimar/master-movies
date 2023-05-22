@@ -41,62 +41,65 @@ type Props ={
 
           <div className="mainIMG">
             <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}`} 
-              fill
-              style={{objectFit: 'cover', objectPosition: 'center top'}} 
-              alt={props.movie.title}/>
+                fill
+                style={{objectFit: 'contain', objectPosition: 'center top'}} 
+                alt={props.movie.title}/>
             
             <div className="bgBackdrop">
               <span className="sectionGral">
-                <div className="">
-                  <h3 className="titTipo">Película</h3>
+                  <div className="titTipo">Película</div>
+                
+                  <div className="">
+                    <h1 className="titID">{props.movie.title}</h1>
+                    <h2 className='sectionGral'>Titulo Original: {props.movie.original_title}</h2>
+                  </div>
+
+                  <div className="pt-2">
+                    <h3 className="textoID">{genres}</h3>
+                    <div className="textoID">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
+                  </div>
+
+                <div className="flex justify-center">
+                  <div className="bg-blue-300 p-4">Child 1</div>
+                  <div className="bg-green-300 p-4">Child 2</div>
+                  <div className="bg-red-300 p-4">Child 3</div>
                 </div>
                 
-                <div className="">
-                  <h1 className="titID">{props.movie.title}</h1>
-                </div>
-                <div className="pt-2">
-                  <h3 className="textoID">{genres}</h3>
-                  <div className="textoID">{`${props.movie.release_date.split("-")[0]} | ${props.movie.runtime} min`}</div>
-                </div>
-                 
-                <div className="">
-                  <div className="thumbID">
-                    <Image className="thumbIMGBorder" 
+                <div className="flex">
+                  <div className=''>
+                      <div className="thumbID">
+                        <Image className="thumbIMGBorder" 
                             src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${props.movie.poster_path}`} 
                             fill
-                            placeholder='blur'
                             blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${props.movie.poster_path}&w=16&q=1`} 
                             style={{objectFit: 'cover',}} 
-                            sizes={imageSizes} alt={props.movie.title}/>
-
+                            sizes={imageSizes} alt={props.movie.title}/>    
+                      </div>
                   </div>
-                </div>
-
-                <div className="hidden md:block pt-10">
-                  <div className="w-[300px] md:w-[600px] lg:w-[700px] 2xl:w-[1200px] 3xl:w-[1500px] max-h-20 lg:max-h-56 2xl:max-h-64 overflow-y-auto text-justify ">
-                    <h2 className="text-lg sm:text-lg lg:text-2xl">{props.movie.overview}</h2>
+                  <div className="descripcionID">
+                      <span>{props.movie.overview}</span>
+                      <div className="pt-4">
+                        <span className="textoResaltado">Protagonistas: </span>
+                        <span>{cast}</span>
+                      </div>
+                      <div>
+                        <span>Puntaje: {Math.round(props.movie.vote_average * 10) / 10}</span>
+                      </div>
+                      <div>
+                          {
+                            props.movie['watch/providers']?.watchProviderCountry &&(
+                              <WatchProviderContainer watchProvider={props.movie['watch/providers'].watchProviderCountry}/>
+                            )
+                          }  
+                      </div> 
                   </div>
-                  <div className="pt-7"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
-                </div>
 
+                </div>
               </span>
             </div>
           </div>
-          <div className="visible md:hidden bg-gray-600 text-white">
-            <div className="pt-10 text-left">
-              <h2 className="text-lg sm:text-lg lg:text-2xl text-justify">{props.movie.overview}</h2>
-            </div>
-            <div className="pt-7 text-left"><span className="text-lg text-gray-400">Protagonistas: </span><span className="text-lg">{cast}</span></div>
-          </div>   
-          <div className='bg-gray-500'>
-            <h2>Titulo Original: {props.movie.original_title}</h2>
-            <h2>Puntaje: {Math.round(props.movie.vote_average * 10) / 10}</h2>
-          </div>
-          {
-            props.movie['watch/providers']?.watchProviderCountry &&(
-              <WatchProviderContainer watchProvider={props.movie['watch/providers'].watchProviderCountry}/>
-            )
-          }          
+  
+          
       </main>     
     </>
   )
