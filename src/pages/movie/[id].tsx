@@ -98,8 +98,7 @@ type Props ={
               </span>
             </div>
           </div>
-  
-          
+
       </main>     
     </>
   )

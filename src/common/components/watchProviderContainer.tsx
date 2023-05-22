@@ -41,8 +41,7 @@ export default function WatchProviderContainer(props: Props) {
                         <span className='titTipo'>Alquilala en:</span>
                         <div className='relative flex items-center'>
                             <div className='flex-1 contenedorThumbsSt'>
-                                {props.watchProvider.rent?.map((rent) => ( 
-                                    <div>                                  
+                                {props.watchProvider.rent?.map((rent) => (                                  
                                         <div key={`rent${rent.provider_id}`}>
                                             <div className='imgThumbStreaming'> 
                                                 <Image className="borderThumbStreaming" 
@@ -56,7 +55,7 @@ export default function WatchProviderContainer(props: Props) {
                                                 <h3>{rent.provider_name} {rent.urlService}</h3>
                                             </span>
                                         </div>  
-                                    </div>                      
+                                                         
                                 ))}
                             </div>
                         </div>
@@ -70,8 +69,7 @@ export default function WatchProviderContainer(props: Props) {
                         <span className='titTipo'>Comprala en:</span>
                         <div className='relative flex items-center'>
                             <div className='flex-1 contenedorThumbsSt'>
-                                {props.watchProvider.buy?.map((buy) => (    
-                                    <div className=''>                               
+                                {props.watchProvider.buy?.map((buy) => (                                  
                                         <div key={`buy${buy.provider_id}`}>
                                             <div className='imgThumbStreaming'>
                                                 <Image className="borderThumbStreaming" 
@@ -84,8 +82,7 @@ export default function WatchProviderContainer(props: Props) {
                                             <span className='textoID text-center'>
                                                 <h3>{buy.provider_name} {buy.urlService}</h3>
                                             </span>
-                                        </div>
-                                    </div>                                                                        
+                                        </div>                                                                        
                                 ))}
                             </div>
                        </div>

@@ -149,7 +149,7 @@
 
     .contenedorThumbsSt {
         /* @apply flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-gray-950; */
-        @apply flex flex-row overflow-y-hidden overflow-x-scroll scroll-smooth pt-4 bgGeneral scrollbar-hide;
+        @apply flex flex-row overflow-y-hidden overflow-x-scroll scroll-smooth pt-4 scrollbar-hide;
      }
 
     .imgThumbStreaming {
