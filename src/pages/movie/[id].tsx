@@ -42,9 +42,9 @@ type Props ={
           <div className="mainIMG">
             <Image src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_BACKDROP_SIZE}${props.movie.backdrop_path}`} 
                 fill
-                style={{objectFit: 'contain', objectPosition: 'center top'}} 
+                style={{objectFit: 'cover', objectPosition: 'center top'}} 
                 alt={props.movie.title}/>
-            
+            <div className='gradientOverIMG'></div>
             <div className="bgBackdrop">
               <span className="sectionGral">
                   <div className="titTipo">Película</div>

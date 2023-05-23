@@ -101,7 +101,14 @@
 
     .bgBackdrop {
         /* headerIMG @apply flex h-full backdrop-brightness-50 bg-gray-950/40 flex-col items-center; */
+        
         @apply flex flex-col backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 items-center;
+        /* @apply flex flex-col backdrop-brightness-50 bg-blue-600/5 w-full h-full p-3 sm:p-10 md:p-20 items-center; */
+    }
+
+    .gradientOverIMG {
+        @apply absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-gray-950 bg-opacity-50;
+        /* bg-gradient-to-t from-gray-950 to-gray-500 opacity-50 */
     }
 
     .sectionGral {
@@ -150,14 +157,18 @@
     .contenedorThumbsSt {
         /* @apply flex flex-row overflow-x-auto overflow-y-hidden pt-4 bg-gray-950;
          */
-        @apply flex flex-row overflow-y-hidden overflow-x-scroll scroll-smooth pt-4 scrollbar-hide;
+        @apply flex flex-row overflow-y-hidden overflow-x-scroll scroll-smooth pt-2 scrollbar-hide;
      }
 
     .imgThumbStreaming {
-        @apply flex w-48 inline-block justify-center relative mb-2;
+        @apply flex w-24 inline-block justify-center relative mb-2;
     }
     .borderThumbStreaming {
         @apply mt-4 rounded-2xl shadow-2xl border-2 border-gray-500; /* width={80} height={80} */
+    }
+
+    .bgWatchIcons {
+        @apply bg-gray-500 bg-opacity-50 p-2;
     }
 
 }
