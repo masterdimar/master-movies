@@ -15,8 +15,6 @@ type Props ={
   language: string
 }
  export default function Movie(props: Props) {
-  const imageSizes: string = '(max-width: 250px) 100vw, (max-width: 500px) 50vw, (max-width: 999px) 20vw, 10vw'
-
   let genres : string = ""
   props.movie.genres.map((genre: Genre) => {
     if(genres == "")
@@ -69,7 +67,7 @@ type Props ={
                             fill
                             blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${props.movie.poster_path}&w=16&q=1`} 
                             style={{objectFit: 'cover',}} 
-                            sizes={imageSizes} alt={props.movie.title}/>    
+                            alt={props.movie.title}/>    
                       </div>
                   </div>
                   <div className=''> 
