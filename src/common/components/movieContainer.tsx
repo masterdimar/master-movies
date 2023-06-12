@@ -10,8 +10,6 @@ type Props ={
 }
 
 export default function MovieContainer(props: Props) {
-    const imageSizes: string = '(max-width: 250px) 100vw, (max-width: 500px) 50vw, (max-width: 999px) 20vw, 10vw'
-
     const sliderRef = useRef<HTMLDivElement>(null);
 
     function handleScroll(amount: number) {
@@ -47,7 +45,7 @@ export default function MovieContainer(props: Props) {
                                             placeholder='blur'
                                             blurDataURL={`/_next/image?url=${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD_MIN}${movie.poster_path}&w=16&q=1`} 
                                             style={{objectFit: 'cover',}} 
-                                            sizes={imageSizes} alt={movie.title}/>
+                                            alt={movie.title}/>
                                 </div>
                                 <div className="thumbTXT">
                                     <h3>{movie.title}</h3>
