@@ -8,6 +8,7 @@ import { Provider } from '@/common/types/provider';
 import { StreamingAvailability } from '@/common/types/streamingAvailability';
 import GetStreamingAvailability from '@/common/utils/StreamingAvailability';
 import StreamingTBDMAvailibityUnion from '@/common/utils/StreamingTMDBAvailibility';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 
 type Props ={

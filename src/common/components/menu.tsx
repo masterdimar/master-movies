@@ -1,4 +1,7 @@
 import { useState } from "react";
+import smLogo from '/public/images/Logo.png';
+import Image from 'next/image';
+
 
 export default function Menu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +13,7 @@ export default function Menu() {
         <>
             <nav className="flex justify-between flex-wrap bg-gray-950" >
                 <div className="flex-1 menuTop">
-                    LOGO
+                    <Image src={smLogo} alt="StreamMaster>" className="logo"/>
                 </div>
                 <div className="menuTop">
                     Idioma                    
@@ -25,6 +28,7 @@ export default function Menu() {
                 {
                     isOpen && (
                         <>
+                        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                         <div className="menuTop">
                             <button onClick={handleFindClick}>Cerrar</button>               
                         </div>
