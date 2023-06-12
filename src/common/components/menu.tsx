@@ -12,7 +12,8 @@ export default function Menu() {
     return(
         <>
             <nav className="flex justify-between flex-wrap bg-gray-950" >
-                <div className="flex-1 menuTop">
+                
+                <div className="flex-1 p-4">
                     <Image src={smLogo} alt="StreamMaster>" className="logo"/>
                 </div>
                 <div className="menuTop">
@@ -44,7 +45,8 @@ export default function Menu() {
                         </div>
                     </>
                     )
-                }                                
+                }
+                                               
             </nav>
         </>
     )
