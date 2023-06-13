@@ -1,5 +1,5 @@
 import { useState } from "react";
-import smLogo from '/public/images/Logo.png';
+import smLogo from '/public/images/Logo_vGris.png';
 import Image from 'next/image';
 
 

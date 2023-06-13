@@ -51,7 +51,6 @@ type Props ={
                 
                   <div className="">
                     <h1 className="titID">{props.serie.name}</h1>
-                    <h2 className='sectionGral'>Titulo Original: {props.serie.original_name}</h2>
                   </div>
 
                   <div className="pt-2">
@@ -72,7 +71,8 @@ type Props ={
                             sizes={imageSizes} alt={props.serie.name}/>    
                       </div>
                   </div>
-                  <div className=''> 
+                  <div className=''>
+                    <div className='descripcionID font-bold'>Titulo Original: {props.serie.original_name}</div>
                     <div className="descripcionID">
                         <span>{props.serie.overview}</span>
                         <div className="pt-4">

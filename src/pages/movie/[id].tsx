@@ -50,7 +50,7 @@ type Props ={
                 
                   <div className="">
                     <h1 className="titID">{props.movie.title}</h1>
-                    <h2 className='sectionGral'>Titulo Original: {props.movie.original_title}</h2>
+                    
                   </div>
 
                   <div className="pt-2">
@@ -72,6 +72,7 @@ type Props ={
                       </div>
                   </div>
                   <div className=''> 
+                    <div className='descripcionID font-bold'>Titulo Original: {props.movie.original_title}</div>
                     <div className="descripcionID">
                         <span>{props.movie.overview}</span>
                         <div className="pt-4">

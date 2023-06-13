@@ -176,7 +176,7 @@
     }
 
     .bgWatchIcons {
-        @apply bg-gray-500 bg-opacity-50 p-2;
+        @apply bg-gray-500 bg-opacity-50 p-2 items-center;
     }
 
 }
