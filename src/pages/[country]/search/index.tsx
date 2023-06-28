@@ -23,8 +23,8 @@ export default function Search(props: Props) {
 
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => 
 {  
-    const language: string = context.query?.language?.toString() || "en-US"
-    const country: string = language.split("-")[1]
+    const language: string = context.query?.language?.toString() || "en-US";
+    const country: string = context.params?.country as string;
     const searchTerm: string = context.query?.searchTerm?.toString() || "";
 
     const movieProviders = await fetch(`${process.env.THEMOVIEDB_API_URL}/watch/providers/movie?api_key=${process.env.THEMOVIEDB_API_KEY}&language=en-US&watch_region=${country}`).then((x) => x.json());
