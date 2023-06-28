@@ -54,6 +54,15 @@
         @apply flex h-full backdrop-brightness-50 bg-gray-950/40 flex-col items-center;
     }
 
+    .fallbackImage {
+       background-image: url('/images/Logo_vGris.png');
+       @apply bg-gray-950 flex justify-center items-center bg-contain bg-no-repeat bg-center;
+ 
+    }
+
+    .fallbackImage::before {
+        content: url('/images/Logo_vGris.png'); /* Adjust the image path as needed */
+    }
     /* MENU TOP */
 
     .menuTop {
@@ -196,4 +205,10 @@
         @apply bg-gray-500 bg-opacity-50 p-2 items-center;
     }
 
+    /****************************/
+    /*                          */
+
+    .contenedorVertical {
+        @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4 m-4;
+    }
 }

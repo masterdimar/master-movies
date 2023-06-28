@@ -9,6 +9,7 @@ type Props = {
   language: string
 }
 
+
 export default function SerieContainerVertical(props: Props) {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [containerHeight, setContainerHeight] = useState<number>(0);
@@ -23,8 +24,8 @@ export default function SerieContainerVertical(props: Props) {
         sliderRef.current.style.gridTemplateColumns = `repeat(auto-fill, minmax(${itemWidth}px, 1fr))`;
         sliderRef.current.style.gridGap = '1rem';
 
-        const numRows = Math.ceil(props.series.length / numItemsPerRow);
-        const calculatedContainerHeight = (numRows * itemWidth) + (numRows * 125); // Assuming 1rem = 16px
+        const numRows = 1; // Math.ceil(props.series.length / numItemsPerRow);
+        const calculatedContainerHeight = (numRows * itemWidth) + (numRows * 180); // Assuming 1rem = 16px
         setContainerHeight(calculatedContainerHeight);
       }
     }
@@ -42,11 +43,13 @@ export default function SerieContainerVertical(props: Props) {
       ) : (
         <div>
         <div className='overflow-auto' style={{ maxHeight: 'calc(100vh - 300px)' }}>
-          <div ref={sliderRef} className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4' style={{ height: `${containerHeight}px` }}>
+          <div ref={sliderRef} className='contenedorVertical' style={{ height: `${containerHeight}px` }}>
             {props.series.map((serie, index) => (
+              
               <div key={`serie${serie.id}`} className="thumbBox">
                 <Link href={`/serie/${serie.id}?language=${props.language}`}>
                   <div className="thumbIMG">
+                  {serie.poster_path && serie.poster_path.split('/')[0].includes('undefined') ? (
                     <Image
                       className="thumbIMGBorder"
                       src={`${process.env.THEserieDB_BASE_URL}${process.env.THEserieDB_POSTER_SIZE_CARD}${serie.poster_path}`}
@@ -56,6 +59,18 @@ export default function SerieContainerVertical(props: Props) {
                       style={{ objectFit: 'cover' }}
                       alt={serie.name}
                     />
+                    ) : (
+                      <Image
+                      className="thumbIMGBorder"
+                      src='/images/ImageFallBack.png'
+                      fill
+                      placeholder='blur'
+                      blurDataURL='/images/ImageFallBack.png'
+                      style={{ objectFit: 'cover' }}
+                      alt={serie.name}
+                    />
+
+                    )}
                   </div>
                   <div className="thumbTXT">
                     <h3>{serie.name}</h3>
