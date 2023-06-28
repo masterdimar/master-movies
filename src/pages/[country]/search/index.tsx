@@ -23,18 +23,18 @@ export default function Search(props: Props) {
 
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => 
 {  
-    const language: string = context.query?.language?.toString() || "en-US";
+    const language: string = context.query?.language?.toString() || "en-US"
     const country: string = context.params?.country as string;
     const searchTerm: string = context.query?.searchTerm?.toString() || "";
 
-    const movieProviders = await fetch(`${process.env.THEMOVIEDB_API_URL}/watch/providers/movie?api_key=${process.env.THEMOVIEDB_API_KEY}&language=en-US&watch_region=${country}`).then((x) => x.json());
+    const movieProviders = await fetch(`${process.env.THEMOVIEDB_API_URL}/watch/providers/movie?api_key=${process.env.THEMOVIEDB_API_KEY}&watch_region=${country}`).then((x) => x.json());
     const tvProviders = await fetch(`${process.env.THEMOVIEDB_API_URL}/watch/providers/tv?api_key=${process.env.THEMOVIEDB_API_KEY}&watch_region=${country}`).then((x) => x.json());
 
     const movieProvidersString : string = movieProviders.results.map((provider: any) => provider.provider_id).join("|");
     const tvProvidersString : string = tvProviders.results.map((provider: any) => provider.provider_id).join("|");
 
-    const discoverMovies: TMDBDiscover = await fetch(`${process.env.THEMOVIEDB_API_URL}/discover/movie?api_key=${process.env.THEMOVIEDB_API_KEY}&with_text_query=${searchTerm}&watch_region=${country}&with_watch_providers=${movieProvidersString}&sort_by=popularity.desc`).then((x) => x.json());
-    const discoverSeries: TMDBDiscover = await fetch(`${process.env.THEMOVIEDB_API_URL}/discover/tv?api_key=${process.env.THEMOVIEDB_API_KEY}&with_text_query=${searchTerm}&watch_region=${country}&with_watch_providers=${tvProvidersString}&sort_by=popularity.desc`).then((x) => x.json());
+    const discoverMovies: TMDBDiscover = await fetch(`${process.env.THEMOVIEDB_API_URL}/discover/movie?api_key=${process.env.THEMOVIEDB_API_KEY}&with_text_query=${searchTerm}&language=${language}&watch_region=${country}&with_watch_providers=${movieProvidersString}&sort_by=popularity.desc`).then((x) => x.json());
+    const discoverSeries: TMDBDiscover = await fetch(`${process.env.THEMOVIEDB_API_URL}/discover/tv?api_key=${process.env.THEMOVIEDB_API_KEY}&with_text_query=${searchTerm}&language=${language}&watch_region=${country}&with_watch_providers=${tvProvidersString}&sort_by=popularity.desc`).then((x) => x.json());
     
     return {
         props: {     
