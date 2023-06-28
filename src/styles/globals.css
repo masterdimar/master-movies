@@ -82,7 +82,8 @@
     }
 
     .thumbIMG {
-        @apply flex h-48 sm:h-80 inline-block justify-center relative hover:scale-105 ease-in-out duration-300;
+        @apply flex h-24 sm:h-72 inline-block justify-center relative hover:scale-105 ease-in-out duration-300;
+        /* h-48 sm:h-80  */
     }
 
 
