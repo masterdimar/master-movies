@@ -49,7 +49,7 @@ export default function SerieContainerVertical(props: Props) {
               <div key={`serie${serie.id}`} className="thumbBox">
                 <Link href={`/serie/${serie.id}?language=${props.language}`}>
                   <div className="thumbIMG">
-                  {serie.poster_path.split('/')[0].includes('undefined') ? (
+                  {!serie.poster_path.split('/')[0].includes('undefined') ? (
                     <Image
                       className="thumbIMGBorder"
                       src={`${process.env.THEserieDB_BASE_URL}${process.env.THEserieDB_POSTER_SIZE_CARD}${serie.poster_path}`}

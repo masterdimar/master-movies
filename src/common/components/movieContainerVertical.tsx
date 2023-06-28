@@ -47,7 +47,8 @@ export default function MovieContainerVertical(props: Props) {
               <div key={`movie${movie.id}`} className="thumbBox">
                 <Link href={`/movie/${movie.id}?language=${props.language}`}>
                   <div className="thumbIMG">
-                  {movie.poster_path.split('/')[0].includes('undefined') ? (
+                  
+                  {!movie.poster_path.split('/')[0].includes('undefined') ? (
                     <Image
                       className="thumbIMGBorder"
                       src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`}
