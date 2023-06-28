@@ -40,6 +40,7 @@ export default function SerieContainerVertical(props: Props) {
         <div className="contenedorTituloThumbs">
         <h2 className='h2-italic'>No matches</h2></div>
       ) : (
+        <div>
         <div className='overflow-auto' style={{ maxHeight: 'calc(100vh - 300px)' }}>
           <div ref={sliderRef} className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4' style={{ height: `${containerHeight}px` }}>
             {props.series.map((serie, index) => (
@@ -62,6 +63,7 @@ export default function SerieContainerVertical(props: Props) {
                 </Link>
               </div>
             ))}
+          </div>
           </div>
           <div className="flex justify-center mt-4">
             <button className="botonVerMas">
