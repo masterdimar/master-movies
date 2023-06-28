@@ -82,7 +82,7 @@ export default function SerieContainerVertical(props: Props) {
           </div>
           <div className="flex justify-center mt-4">
             <button className="botonVerMas">
-              See more
+              Ver más
             </button>
           </div>
         </div>
