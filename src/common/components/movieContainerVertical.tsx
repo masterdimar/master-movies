@@ -23,7 +23,7 @@ export default function MovieContainerVertical(props: Props) {
         sliderRef.current.style.gridTemplateColumns = `repeat(auto-fill, minmax(${itemWidth}px, 1fr))`;
         sliderRef.current.style.gridGap = '1rem';
 
-        const numRows = 1; //Math.ceil(props.movies.length / numItemsPerRow);
+        const numRows = Math.ceil(props.movies.length / numItemsPerRow);
         const calculatedContainerHeight = (numRows * itemWidth) + (numRows * 180); // Assuming 1rem = 16px
         setContainerHeight(calculatedContainerHeight);
       }
@@ -32,12 +32,12 @@ export default function MovieContainerVertical(props: Props) {
 
   return (
     <>
-      <div className="contenedorTituloThumbs">
+      <div className="contenedorTituloThumbs justify-center">
         <h2 className='mr-2'>Películas populares</h2>
       </div>
 
       {props.movies.length === 0 ? (
-        <div className="contenedorTituloThumbs">
+        <div className="contenedorTituloThumbs justify-center">
         <h2 className='h2-italic'>No matches</h2></div>
       ) : (
         <div>
@@ -48,7 +48,7 @@ export default function MovieContainerVertical(props: Props) {
                 <Link href={`/movie/${movie.id}?language=${props.language}`}>
                   <div className="thumbIMG">
                   
-                  {!movie.poster_path.split('/')[0].includes('undefined') ? (
+                  {movie.poster_path && !movie.poster_path.split('/')[0].includes('undefined') ? (
                     <Image
                       className="thumbIMGBorder"
                       src={`${process.env.THEMOVIEDB_BASE_URL}${process.env.THEMOVIEDB_POSTER_SIZE_CARD}${movie.poster_path}`}

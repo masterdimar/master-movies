@@ -33,12 +33,12 @@ export default function SerieContainerVertical(props: Props) {
 
   return (
     <>
-      <div className="contenedorTituloThumbs">
+      <div className="contenedorTituloThumbs justify-center">
         <h2 className='mr-2'>Series populares</h2>
       </div>
 
       {props.series.length === 0 ? (
-        <div className="contenedorTituloThumbs">
+        <div className="contenedorTituloThumbs justify-center">
         <h2 className='h2-italic'>No matches</h2></div>
       ) : (
         <div>
@@ -49,7 +49,8 @@ export default function SerieContainerVertical(props: Props) {
               <div key={`serie${serie.id}`} className="thumbBox">
                 <Link href={`/serie/${serie.id}?language=${props.language}`}>
                   <div className="thumbIMG">
-                  {!serie.poster_path.split('/')[0].includes('undefined') ? (
+                    
+                  {serie.poster_path && serie.poster_path.split('/')[0].includes('undefined') ? (
                     <Image
                       className="thumbIMGBorder"
                       src={`${process.env.THEserieDB_BASE_URL}${process.env.THEserieDB_POSTER_SIZE_CARD}${serie.poster_path}`}
